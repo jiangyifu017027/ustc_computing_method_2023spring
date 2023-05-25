@@ -38,6 +38,8 @@
   "files.associations": {
     "*.cpp": "cpp",
     "complex": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "iosfwd": "cpp",
+    "fstream": "cpp"
   }
 }

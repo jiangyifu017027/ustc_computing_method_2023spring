@@ -75,12 +75,27 @@ int main() {
     for (double i = 0.0; fabs(n - i) >=  1e-5; i += 1.0) {
         f.push_back(f1(i / n));
     }
+    ofstream dataG4;
+    dataG4.open("C:\\ustc_computing_method\\dataG4.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(f[i]);
+        dataG4 << i / n << " " << temp << endl;
+    }
+    dataG4.close();
     vector<complex<double>> g = FFT(f);
+    vector<complex<double>> g1 = IFFT(g);
+    ofstream dataG7;
+    dataG7.open("C:\\ustc_computing_method\\dataG7.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(g1[i]);
+        dataG7 << i / n << " " << temp << endl;
+    }
+    dataG7.close();
     ofstream dataG1;
     dataG1.open("C:\\ustc_computing_method\\dataG1.txt");
     for (int i = 0; i < int(n); ++i) {
         double temp = fabs(g[i]);
-        dataG1 << i << " " << temp << endl;
+        dataG1 << temp << endl;
     }
     dataG1.close();
     /*
@@ -97,13 +112,29 @@ int main() {
     for (double i = 0.0; fabs(n - i) >=  1e-5; i += 1.0) {
         f.push_back(f1(i / n));
     }
+    ofstream dataG5;
+    dataG5.open("C:\\ustc_computing_method\\dataG5.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(f[i]);
+        dataG5 << i / n << " " << temp << endl;
+    }
+    dataG5.close();
     g.empty();
+    g1.empty();
     g = FFT(f);
+    g1 = IFFT(g);
+    ofstream dataG8;
+    dataG8.open("C:\\ustc_computing_method\\dataG8.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(g1[i]);
+        dataG8 << i / n << " " << temp << endl;
+    }
+    dataG8.close();
     ofstream dataG2;
     dataG2.open("C:\\ustc_computing_method\\dataG2.txt");
     for (int i = 0; i < int(n); ++i) {
         double temp = fabs(g[i]);
-        dataG2 << i << " " << temp << endl;
+        dataG2 << temp << endl;
     }
     dataG2.close();
     /*
@@ -119,13 +150,42 @@ int main() {
     for (double i = 0.0; fabs(n - i) >=  1e-5; i += 1.0) {
         f.push_back(f2(i / n));
     }
+    ofstream dataG6;
+    dataG6.open("C:\\ustc_computing_method\\dataG6.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(f[i]);
+        dataG6 << i / n << " " << temp << endl;
+    }
+    dataG6.close();
     g.empty();
+    g1.empty();
     g = FFT(f);
+    g1 = IFFT(g);
+    ofstream dataG9;
+    dataG9.open("C:\\ustc_computing_method\\dataG9.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(g1[i]);
+        dataG9 << i / n << " " << temp << endl;
+    }
+    dataG9.close();
+    g1.empty();
+    for (int i = 0; i < n; ++i) {
+        if (i < n * 0.25) 
+            g1.push_back(g[i]);
+        else g1.push_back(complex<double>(0.0, 0.0));
+    }
+    ofstream dataG10;
+    dataG10.open("C:\\ustc_computing_method\\dataG10.txt");
+    for (int i = 0; i < int(n); ++i) {
+        double temp = real(g1[i]);
+        dataG10 << i / n << " " << temp << endl;
+    }
+    dataG10.close();
     ofstream dataG3;
     dataG3.open("C:\\ustc_computing_method\\dataG3.txt");
     for (int i = 0; i < int(n); ++i) {
         double temp = fabs(g[i]);
-        dataG3 << i << " " << temp << endl;
+        dataG3 << temp << endl;
     }
     dataG3.close();
     /*
